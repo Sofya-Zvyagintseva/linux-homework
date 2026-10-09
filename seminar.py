@@ -1,40 +1,33 @@
-# --- Задание 1: ДНК ---
-def task_1():
-    s = input().strip()
-    print(s.count('A'), s.count('C'), s.count('G'), s.count('T'))
+# --- Задание 1: Подсчет нуклеотидов ДНК ---
+dna = input().strip()
+print(dna.count('A'), dna.count('C'), dna.count('G'), dna.count('T'))
 
-# --- Задание 2 ---
-def task_2():
-    # Твой код для 2 задания
-    pass
+# --- Задание 2: Транскрипция ДНК в РНК ---
+dna = input().strip()
+rna = dna.replace('T', 'U')
+print(rna)
 
-# --- Задание 3 ---
-def task_3():
-    # Твой код для 3 задания
-    pass
+# --- Задание 3: Обратный комплемент ДНК ---
+dna = input().strip()
+trans_table = str.maketrans('ATCG', 'TAGC')
+complement = dna.translate(trans_table)[::-1]
+print(complement)
 
-# --- Задание 4 ---
-def task_4():
-    # Твой код для 4 задания
-    pass
+# --- Задание 4: Содержание GC ---
+dna = input().strip()
+gc_count = dna.count('G') + dna.count('C')
+gc_percent = (gc_count / len(dna)) * 100
+print(f"{gc_percent:.2f}%")
 
-# --- Задание 5 ---
-def task_5():
-    # Твой код для 5 задания
-    pass
-
-# --- Задание 6 ---
-def task_6():
-    # Твой код для 6 задания
-    pass
-
-
-# === ЗАПУСК ЗАДАЧ ===
-# Оставляй БЕЗ решетки только ту задачу, которую хочешь проверить прямо сейчас
-
-task_1()
-# task_2()
-# task_3()
-# task_4()
-# task_5()
-# task_6()
+# --- Задание 5: Поиск мотива в последовательности ДНК ---
+s = input().strip()
+t = input().strip()
+positions = []
+start = 0
+while True:
+    pos = s.find(t, start)
+    if pos == -1:
+        break
+    positions.append(str(pos + 1))
+    start = pos + 1
+print(" ".join(positions))
