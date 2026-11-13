@@ -1,0 +1,9 @@
+.ipynb_checkpoints/
+__pycache__/
+bin/
+lib/
+lib64/
+include/
+ponchik/
+bioenv/
+pyvenv.cfg
